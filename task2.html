@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Seçenekleri | İlmekten Çizgiye</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Bu sayfaya özel ek düzenlemeler */
+        .main-container {
+            padding: 50px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .pricing-wrapper {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 40px 30px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--turkuaz);
+        }
+
+        .card.popular {
+            border-color: var(--turkuaz);
+            transform: scale(1.05);
+            background: white;
+            z-index: 1;
+        }
+
+        .card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .badge {
+            background: var(--vurgu);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            color: var(--ana-renk);
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 40px;
+            font-weight: bold;
+            color: var(--ana-renk);
+            margin-bottom: 25px;
+        }
+
+        .price span {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .card ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .card ul li::before {
+            content: "✓";
+            color: var(--turkuaz);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: block;
+            padding: 15px 25px;
+            background: #eee;
+            color: var(--ana-renk);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--vurgu);
+            color: white;
+        }
+
+        .btn:hover {
+            filter: brightness(1.1);
+        }
+
+        .back-link {
+            margin-top: 50px;
+        }
+
+        .back-link a {
+            color: var(--ana-renk);
+            text-decoration: none;
+            font-weight: bold;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card.popular {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="page-header">
+            <h1>Paket Seçeneklerimiz</h1>
+            <p>Atölyemizden size en uygun hizmeti seçin.</p>
+        </header>
+
+        <div class="pricing-wrapper">
+            <div class="card">
+                <h3>Başlangıç</h3>
+                <div class="price">₺0<span>/ay</span></div>
+                <ul>
+                    <li>Temel Çizim Taslakları</li>
+                    <li>E-Posta Desteği</li>
+                    <li>Dijital Katalog Erişimi</li>
+                </ul>
+                <a href="#" class="btn">Ücretsiz Dene</a>
+            </div>
+
+            <div class="card popular">
+                <div class="badge">En Popüler</div>
+                <h3>Profesyonel</h3>
+                <div class="price">₺199<span>/ay</span></div>
+                <ul>
+                    <li>Detaylı Portre Çizimi</li>
+                    <li>Amigurumi Tasarımı</li>
+                    <li>Öncelikli Sipariş Hakkı</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Hemen Başla</a>
+            </div>
+
+            <div class="card">
+                <h3>Kurumsal</h3>
+                <div class="price">₺499<span>/ay</span></div>
+                <ul>
+                    <li>Kişiye Özel Setler</li>
+                    <li>Canlı Tasarım Desteği</li>
+                    <li>Ticari Kullanım Lisansı</li>
+                </ul>
+                <a href="#" class="btn">İletişime Geç</a>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">← Ana Sayfaya Dön</a>
+        </div>
+    </div>
+</body>
+</html>
