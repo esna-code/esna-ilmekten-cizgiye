@@ -223,7 +223,7 @@ body {
     text-align: center;
   }
 
-  /* JavaScript ile eklenecek 'active' sınıfı için */
+  /* JavaScript ile 'active' sınıfı için */
   .nav-links.active {
     display: flex;
   }
@@ -244,4 +244,83 @@ body {
     width: 100%;
     height: 300px;
   }
+}
+/* --- 3. HAFTA: ETKİLEŞİM VE ANİMASYONLAR --- */
+
+/* 1. Menü Linkleri İçin Yumuşak Renk Geçişi */
+.nav-links a:hover {
+    color: var(--turkuaz); /* Üzerine gelince marka rengine döner */
+    transition: color 0.4s ease;
+}
+
+/* 2. Kartlar İçin  Hover (Zıplama ve Gölge) */
+.service-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.service-card:hover {
+    transform: translateY(-15px); /* Daha belirgin yukarı kalkış */
+    box-shadow: 0 15px 35px rgba(0, 207, 213, 0.25); /* Turkuaz tonlarında derinlik */
+    background: white; /* Şeffaflığı azaltıp kartı öne çıkarır */
+}
+
+/* 3. Kart İçindeki Resmin Hafifçe Dönmesi ve Büyümesi */
+.service-card:hover img {
+    transform: scale(1.08) rotate(2deg); /* Hafif  bir eğim */
+    transition: transform 0.5s ease;
+}
+
+/* 4. Sayfa Açılışında Kartların Süzülerek Gelmesi (Fade-In-Up) */
+@keyframes süzülmeEfekti {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-card {
+    animation: süzülmeEfekti 0.8s ease-out forwards;
+}
+
+/* 5. Buton İçin Parlama Animasyonu */
+.btn-cta {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cta:hover {
+    transform: scale(1.05); /* Buton hafifçe büyür */
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+}
+/* Ekip kartlarını, hizmet kartlarıyla aynı efekt seviyesine getiriyor */
+.team-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    animation: süzülmeEfekti 0.8s ease-out forwards !important;
+}
+
+.team-card:hover {
+    transform: translateY(-15px) !important;
+    box-shadow: 0 15px 35px rgba(0, 207, 213, 0.25) !important;
+    background: white !important;
+}
+
+/* Ekip resimlerinin de büyümesi için*/
+.team-card:hover img {
+    transform: scale(1.08) rotate(2deg) !important;
+}
+.services-grid {
+    display: flex;
+    flex-wrap: wrap; /* Mobilde alt alta, PC'de yan yana dizilmeleri için */
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-card {
+    flex: 1 1 230px; /* Kartların genişliğini 4 taneye göre  */
+    max-width: 260px;
 }

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ekibimiz | İlmekten Çizgiye</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* --- SERTİFİKA VE PROFİL STİLLERİ  --- */
+      .profile-img-box {
+        width: 130px;
+        height: 130px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid var(--turkuaz);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .profile-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .certification-badge {
+        background: #ffffff;
+        border: 1px dashed var(--turkuaz);
+        border-radius: 12px;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      .certification-badge:hover {
+        transform: scale(1.05);
+        background: #f0fdfa;
+      }
+      .role {
+        color: var(--turkuaz);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .bio {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+        color: #555;
+      }
+
+      /* --- MODAL (TAM EKRAN SERTİFİKA) STİLİ --- */
+      .modal {
+        display: none; /* JavaScript ile açılır */
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+      }
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 90%;
+        max-width: 550px;
+        max-height: 80vh;
+        border: 4px solid white;
+        border-radius: 15px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+    </style>
+  </head>
+
+  <body style="background-image: url('4.png'); background-size: cover; background-attachment: fixed; background-position: center;">
+    
+    <nav class="navbar">
+      <div class="container">
+        <img src="5.png" alt="Logo" class="logo" />
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Anasayfa</a></li>
+          <li><a href="index.html#services">Hizmetler</a></li>
+          <li><a href="team.html">Ekibimiz</a></li>
+          <li><a href="#">İletişim</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="team-section" style="padding-top: 120px; padding-bottom: 50px;">
+      <div class="container">
+        <h2 class="section-title">Yaratıcı Ekibimiz</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: #2c3e50; font-weight: 500;">Fikirleri ilmeğe, ilmekleri çizgiye dönüştüren ekip.</p>
+
+        <div class="services-grid">
+          
+          <div class="service-card team-card">
+            <div class="profile-img-box">
+              <img src="profil.jpeg" alt="Esna Erem" />
+            </div>
+            <h3>Esna Erem</h3>
+            <span class="role">Lead Developer</span>
+            <p class="bio">HTML5, CSS3 ve JavaScript mimarisinden sorumlu teknik lider. Proje kod yapısını ve performansını yönetiyor.</p>
+            <div class="certification-badge" onclick="openModal()">
+              <img src="sertifika.png" alt="Q-Line Sertifikası" style="width: 100%; border-radius: 5px;" />
+              <p style="font-size: 0.7rem; color: var(--turkuaz); margin-top: 5px; font-weight: bold;">📜 Sertifikayı Görüntüle</p>
+            </div>
+            <div class="social-links" style="margin-top:10px;">
+              <a href="#">🔗 LinkedIn</a>
+            </div>
+          </div>
+
+          <div class="service-card team-card">
+            <div class="profile-img-box" style="background: #f39c12; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px;">
+              <span>🎨</span>
+            </div>
+            <h3>Kreatif Direktör</h3>
+            <span class="role">Art & Design Lead</span>
+            <p class="bio">Markanın görsel kimliğini ve sanatsal dilini oluşturuyor. Tasarımların estetik standartlarından sorumlu zihin.</p>
+            <div class="social-links">
+              <a href="#">🎨 Portfolio</a>
+            </div>
+          </div>
+
+          <div class="service-card team-card">
+            <div class="profile-img-box" style="background: #2ecc71; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px;">
+              <span>📊</span>
+            </div>
+            <h3>Proje Yöneticisi</h3>
+            <span class="role">Operations Manager</span>
+            <p class="bio">Sprint süreçlerini ve zaman yönetimini koordine ediyor. Ekip içi iletişimi yöneten stratejist.</p>
+            <div class="social-links">
+              <a href="#">💼 Contact</a>
+            </div>
+          </div>
+
+          <div class="service-card team-card">
+            <div class="profile-img-box" style="background: #9b59b6; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px;">
+              <span>📱</span>
+            </div>
+            <h3>UI/UX Tasarımcı</h3>
+            <span class="role">User Experience</span>
+            <p class="bio">Kullanıcı dostu arayüzler tasarlıyor ve sitenin dijital deneyimini optimize eden mimar.</p>
+            <div class="social-links">
+              <a href="#">🖥️ Behance</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+          <a href="index.html" class="btn-cta" style="display: inline-block; text-decoration: none; padding: 15px 40px;">
+            🏠 Anasayfaya Geri Dön
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div id="sertifikaModal" class="modal" onclick="closeModal()">
+      <img class="modal-content" src="sertifika.png" alt="Sertifika" />
+    </div>
+
+    <footer style="margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.9); text-align: center;">
+      <p>© 2026 İlmek & İz | Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+      // Hamburger Menü Fonksiyonu
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      }
+
+      // MODAL FONKSİYONLARI
+      function openModal() {
+        const modal = document.getElementById("sertifikaModal");
+        modal.style.display = "block";
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("sertifikaModal");
+        modal.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
