@@ -1,167 +1,194 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hizmet Teklifi | İlmekten Çizgiye</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hizmet Teklifi | İlmekten Çizgiye</title>
+    <link rel="stylesheet" href="style.css">
 
-<style>
+    <style>
+        /* ✅ HESAPLAMA KARTI TASARIMI */
+        .hesap-karti {
+            background: rgba(255, 255, 255, 0.9); /* Şeffaf beyaz dokunuşu */
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-bottom: 5px solid var(--turkuaz);
+        }
 
-.hesap-karti{
-background: var(--beyaz-transparan);
-max-width: 500px;
-margin: 80px auto;
-padding: 40px;
-border-radius: 20px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-border-bottom: 5px solid var(--turkuaz);
-}
+        select, input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
 
-select,input{
-width:100%;
-padding:12px;
-margin:10px 0 20px;
-border-radius:10px;
-border:1px solid #ddd;
-}
+        /* ✅ CHECKBOX TASARIMI */
+        .checkbox-grup {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
 
-/* ✅ CHECKBOX TASARIMI */
-.checkbox-grup{
-display:flex;
-flex-direction:column;
-gap:15px;
-margin-bottom:25px;
-}
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-.checkbox-item{
-display:flex;
-align-items:center;
-gap:12px;
-cursor:pointer;
-font-size:16px;
-}
+        .checkbox-item input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            accent-color: var(--turkuaz);
+        }
 
-.checkbox-item input{
-width:18px;
-height:18px;
-margin:0;
-accent-color: var(--turkuaz);
-}
+        /* ✅ ANA BUTON (HESAPLA) */
+        .btn-teklif {
+            width: 100%;
+            background: var(--vurgu);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
 
-.btn-teklif{
-width:100%;
-background: var(--vurgu);
-color:white;
-padding:15px;
-border:none;
-border-radius:30px;
-font-weight:bold;
-cursor:pointer;
-font-size:16px;
-transition:0.3s;
-}
+        .btn-teklif:hover {
+            transform: scale(1.05);
+            background: #e67e22; /* Biraz daha koyu turuncu */
+        }
 
-.btn-teklif:hover{
-transform:scale(1.05);
-}
+        /* ✅ SONUÇ ALANI */
+        #sonuc-kutusu {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #e0fcf9;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #233b61;
+        }
 
-#sonuc-kutusu{
-display:none;
-margin-top:25px;
-padding:20px;
-background:#e0fcf9;
-border-radius:12px;
-text-align:center;
-font-size:20px;
-font-weight:bold;
-}
+        /* ✅ ANA SAYFAYA DÖN BUTON TASARIMI */
+        .back-link {
+            text-align: center;
+            margin: 30px 0;
+        }
 
-</style>
+        .back-link a {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: transparent;
+            color: var(--vurgu);
+            text-decoration: none;
+            border: 2px solid var(--vurgu);
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-link a:hover {
+            background-color: var(--vurgu);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 
-<body>
+<body style="background-image: url('4.png'); background-size: cover; background-attachment: fixed;">
 
-<div class="container">
-<div class="hesap-karti">
+    <div class="container">
+        <div class="hesap-karti">
+            <h2 style="text-align:center; color: #233b61;">Teklif Hesapla</h2>
 
-<h2 style="text-align:center;">Teklif Hesapla</h2>
+            <label style="font-weight: bold;">Hizmet Seçin</label>
+            <select id="js-hizmet">
+                <option value="0">Seçiniz</option>
+                <option value="2500">Kişiye Özel Çizim (2.500 TL)</option>
+                <option value="1800">El Örgüsü Tasarım (1.800 TL)</option>
+                <option value="3000">Tasarım Danışmanlığı (3.000 TL)</option>
+            </select>
 
-<label>Hizmet Seçin</label>
-<select id="js-hizmet">
-<option value="0">Seçiniz</option>
-<option value="2500">Kişiye Özel Çizim</option>
-<option value="1800">El Örgüsü Tasarım</option>
-<option value="3000">Tasarım Danışmanlığı</option>
-</select>
+            <label style="font-weight: bold;">Adet</label>
+            <input type="number" id="js-adet" value="1" min="1">
 
-<label>Adet</label>
-<input type="number" id="js-adet" value="1" min="1">
+            <div class="checkbox-grup">
+                <label class="checkbox-item">
+                    <input type="checkbox" id="js-hizli">
+                    <span>Hızlı Teslimat (+1.000 TL)</span>
+                </label>
 
-<!-- ✅ HİZALI CHECKBOXLAR -->
-<div class="checkbox-grup">
+                <label class="checkbox-item">
+                    <input type="checkbox" id="js-revizyon">
+                    <span>Ekstra Revizyon (+500 TL)</span>
+                </label>
+            </div>
 
-<label class="checkbox-item">
-<input type="checkbox" id="js-hizli">
-<span>Hızlı Teslimat (+1000 TL)</span>
-</label>
+            <button onclick="teklifHesapla()" class="btn-teklif">
+                Tahmini Tutar Hesapla
+            </button>
 
-<label class="checkbox-item">
-<input type="checkbox" id="js-revizyon">
-<span>Ekstra Revizyon (+500 TL)</span>
-</label>
+            <div id="sonuc-kutusu"></div>
 
-</div>
-
-<button onclick="teklifHesapla()" class="btn-teklif">
-Tahmini Tutar Hesapla
-</button>
-
-<div id="sonuc-kutusu"></div>
-
-</div>
-</div>
-
-<script>
-
-function teklifHesapla(){
-
-let hizmet = parseInt(document.getElementById("js-hizmet").value);
-let adet = parseInt(document.getElementById("js-adet").value);
-let hizli = document.getElementById("js-hizli").checked;
-let revizyon = document.getElementById("js-revizyon").checked;
-
-if(hizmet === 0){
-sonucGoster("Lütfen hizmet seçiniz");
-return;
-}
-
-let toplam = hizmet * adet;
-
-if(hizli) toplam += 1000;
-if(revizyon) toplam += 500;
-
-sonucGoster("Tahmini Tutar: " + toplam.toLocaleString("tr-TR") + " TL");
-
-}
-
-function sonucGoster(metin){
-let kutu = document.getElementById("sonuc-kutusu");
-kutu.style.display="block";
-kutu.innerHTML = metin;
-}
-
-
-</script>
- <div class="back-link">
-            <a href="index.html">← Ana Sayfaya Dön</a>
+            <div class="back-link">
+                <a href="index.html">← Ana Sayfaya Dön</a>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Task 4.1: Business Logic (Algoritma)
+        function teklifHesapla() {
+            // Input Handling: Kullanıcı verilerini toplama
+            let hizmet = parseInt(document.getElementById("js-hizmet").value);
+            let adet = parseInt(document.getElementById("js-adet").value);
+            let hizli = document.getElementById("js-hizli").checked;
+            let revizyon = document.getElementById("js-revizyon").checked;
+
+            // Hata Kontrolü
+            if(hizmet === 0){
+                sonucGoster("Lütfen bir hizmet seçiniz");
+                return;
+            }
+
+            // Matematiksel Hesaplama
+            let toplam = hizmet * adet;
+
+            if(hizli) toplam += 1000;
+            if(revizyon) toplam += 500;
+
+            // Sonucu Ekrana Basma
+            sonucGoster("Tahmini Tutar: " + toplam.toLocaleString("tr-TR") + " TL");
+            
+            // Clean Code gereği konsola rapor
+            console.log("Hesaplama tamamlandı: " + toplam + " TL");
+        }
+
+        // DOM Manipülasyon Fonksiyonu
+        function sonucGoster(metin) {
+            let kutu = document.getElementById("sonuc-kutusu");
+            kutu.style.display = "block";
+            kutu.innerHTML = metin;
+        }
+    </script>
+
     <footer style="margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.9); text-align: center;">
-    <p>© 2026 İlmek & İz | Tüm Hakları Saklıdır.</p>
-</footer>
-</body>
-</html>
+        <p>© 2026 İlmek & İz | Tüm Hakları Saklıdır.</p>
+    </footer>
 
 </body>
 </html>
