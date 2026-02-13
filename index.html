@@ -1,79 +1,101 @@
 <!doctype html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>İlmekten Çizgiye | Sanat ve Tasarım Atölyesi</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="container">
-        <img src="5.png" alt="Logo" class="logo" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İlmekten Çizgiye | Sanat ve Tasarım Atölyesi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+<body>
 
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Anasayfa</a></li>
-          <li><a href="#services">Hizmetler</a></li>
-          <li><a href="team.html">Ekibimiz</a></li>
-          <li><a href="#">İletişim</a></li>
-        </ul>
+<nav class="navbar">
+  <div class="container">
+
+    <img src="5.png" alt="Logo" class="logo" />
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Anasayfa</a></li>
+      <li><a href="index.html#services">Hizmetler</a></li>
+      <li><a href="team.html">Ekibimiz</a></li>
+      <li><a href="#">İletişim</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-wrapper">
+
+    <div class="hero-content">
+      <h1>İlmekten Çizgiye Yolculuk</h1>
+      <p>El Emeği Tasarımlar, Dijital Sanat ve Yaratıcı Atölyeler</p>
+    </div>
+
+    <div class="hero-decoration">
+      <img src="4.png" alt="Atölye Çalışması" class="hero-img" />
+    </div>
+
+  </div>
+</header>
+
+<section id="services" class="services">
+  <div class="container">
+
+    <h2 class="section-title">Hizmetlerimiz</h2>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="icon-placeholder"><img src="1.png" alt="icon" /></div>
+        <h3>Kişiye Özel Çizimler</h3>
+        <p>El emeği tasarımlar, dijital sanat eserleri.</p>
       </div>
-    </nav>
 
-    <header class="hero">
-      <div class="container hero-wrapper">
-        <div class="hero-content">
-          <h1>İlmekten Çizgiye Yolculuk</h1>
-          <p>El Emeği Tasarımlar, Dijital Sanat ve Yaratıcı Atölyeler</p>
-        </div>
-        <div class="hero-decoration">
-          <img src="4.png" alt="Atölye Çalışması" class="hero-img" />
-        </div>
+      <div class="service-card">
+        <div class="icon-placeholder"><img src="2.png" alt="icon" /></div>
+        <h3>El Örgüsü Tasarımlar</h3>
+        <p>Modern dokunuşlarla hazırlanan örgü ürünler.</p>
       </div>
-    </header>
 
-    <section id="services" class="services">
-      <div class="container">
-        <h2 class="section-title">Hizmetlerimiz</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="icon-placeholder"><img src="1.png" alt="icon" /></div>
-            <h3>Kişiye Özel Çizimler</h3>
-            <p>El emeği tasarımlar, dijital sanat eserleri.</p>
-          </div>
-          <div class="service-card">
-            <div class="icon-placeholder"><img src="2.png" alt="icon" /></div>
-            <h3>El Örgüsü Tasarımlar</h3>
-            <p>Modern dokunuşlarla hazırlanan örgü ürünler.</p>
-          </div>
-          <div class="service-card">
-            <div class="icon-placeholder"><img src="3.png" alt="icon" /></div>
-            <h3>Tasarım Danışmanlığı</h3>
-            <p>Fikirlerinizi gerçeğe dönüştüren profesyonel destek.</p>
-          </div>
-        </div>
-        <div class="cta-container">
-          <a href="task2.html" class="btn-cta">Paket Fiyatlarını Gör</a>
-        </div>
+      <div class="service-card">
+        <div class="icon-placeholder"><img src="3.png" alt="icon" /></div>
+        <h3>Tasarım Danışmanlığı</h3>
+        <p>Fikirlerinizi gerçeğe dönüştüren profesyonel destek.</p>
       </div>
-    </section>
 
-    <script>
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("nav-links");
+    </div>
 
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-    </script>
-  <footer style="margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.9); text-align: center;">
-    <p>© 2026 İlmek & İz | Tüm Hakları Saklıdır.</p>
-</footer>
-  </body>
+    <!-- BUTONLAR -->
+    <div class="cta-container">
+
+      <a href="task2.html" class="btn-cta">
+        Paket Fiyatlarını Gör
+      </a>
+
+      <a href="teklif.html" class="btn-teklif-cta">
+        Teklif Hesapla
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+</script>
+
+</body>
 </html>
