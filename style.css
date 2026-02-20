@@ -5,11 +5,53 @@ padding:0;
 box-sizing:border-box;
 }
 
-:root{
---ana-renk:#233b61;
---vurgu:#f39c12;
---turkuaz:#00cfd5;
---beyaz-transparan:rgba(255,255,255,0.85);
+/* 1. GENEL AYARLAR VE RENK DEĞİŞKENLERİ */
+:root {
+    /* Aydınlık Mod Renkleri (Senin mevcut renklerin) */
+    --ana-renk: #233b61;
+    --vurgu: #f39c12;
+    --turkuaz: #00cfd5;
+    --arka-plan-rengi: #ffffff; /* Sayfa arkası */
+    --kutu-arkasi: rgba(255, 255, 255, 0.85); /* Beyaz transparan */
+    --yazi-rengi: #233b61;
+    --navbar-arkasi: rgba(255, 255, 255, 0.8);
+}
+
+/* Karanlık Mod Renkleri (Body'e .dark-mode gelince burası aktif olur) */
+body.dark-mode {
+    --ana-renk: #00cfd5; /* Karanlıkta yazıların turkuaz parlaması için */
+    --arka-plan-rengi: #121212; /* Koyu arka plan */
+    --kutu-arkasi: rgba(30, 30, 30, 0.9); /* Koyu kutular */
+    --yazi-rengi: #f0f0f0; /* Açık renk yazılar */
+    --navbar-arkasi: rgba(20, 20, 20, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Renk geçişleri yumuşak olsun */
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--yazi-rengi); /* Değişkene bağladık */
+    line-height: 1.6;
+    background-color: var(--arka-plan-rengi); /* Resim yüklenmezse diye */
+    background-image: url("arka-plan.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Karanlık modda arka plan resmini biraz karartalım ki yazılar okunsun */
+body.dark-mode::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* %70 siyah perde */
+    z-index: -1;
 }
 
 body{
@@ -265,3 +307,57 @@ width:100%;
 min-width:unset;
 }
 }
+/* --- TASK 5.2 FİNAL DOKUNUŞ: KARANLIK MODDA BEYAZLIKLARI SİL VE YAZILARI PARLAT --- */
+
+body.dark-mode .service-card, 
+body.dark-mode .team-card, 
+body.dark-mode .hero-wrapper,
+body.dark-mode .navbar,
+body.dark-mode footer {
+    background: #1e1e1e !important; /* Beyaz arka planı öldürür, modern siyah yapar */
+    color: #ffffff !important;      /* Tüm yazıları beyaz yapar */
+    border-color: var(--turkuaz) !important; /* Çerçeveleri turkuazda tutar */
+}
+
+/* Kartların içindeki başlık ve paragrafları garantiye alalım */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p,
+body.dark-mode .nav-links a {
+    color: #ffffff !important;
+}
+
+/* Hover (Üzerine Gelme) Durumu: Karanlık modda beyaz patlamasını engeller */
+body.dark-mode .service-card:hover, 
+body.dark-mode .team-card:hover {
+    background: #2c2c2c !important; /* Hafifçe açılan bir gri */
+    box-shadow: 0 10px 25px rgba(0, 207, 213, 0.3) !important;
+}
+/* ✅ ARKA PLANI KORUYAN KARANLIK MOD AYARI */
+body.dark-mode {
+    background-color: #121212; /* Resim yüklenmezse diye yedek */
+    background-image: url("arka-plan.jpg"); /* RESMİNİ BURADA TEKRAR ÇAĞIRIYORUZ */
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Sayfanın üzerine siyah bir perde çekiyoruz ama resmi alttan görüyoruz */
+body.dark-mode::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* %75 siyahlık, resmi %25 oranında gösterir */
+    z-index: -1; /* Resim ile yazıların arasında durur */
+}
+
+/* Kartların içindeki beyazlığı transparan siyah yapalım */
+body.dark-mode .hero-wrapper,
+body.dark-mode .service-card,
+body.dark-mode .team-card {
+    background: rgba(30, 30, 30, 0.8) !important; /* Resim alttan hafifçe seçilsin */
+    backdrop-filter: blur(5px); /* Cam efekti verir, çok şık durur */
+    color: #ffffff !important;
+}
+

@@ -69,13 +69,19 @@
         position: relative;
         top: 50%;
         transform: translateY(-50%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       }
     </style>
   </head>
 
-  <body style="background-image: url('4.png'); background-size: cover; background-attachment: fixed; background-position: center;">
-    
+  <body
+    style="
+      background-image: url(&quot;4.png&quot;);
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    "
+  >
     <nav class="navbar">
       <div class="container">
         <img src="5.png" alt="Logo" class="logo" />
@@ -86,76 +92,167 @@
         </div>
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Anasayfa</a></li>
-          <li><a href="index.html#services">Hizmetler</a></li>
+          <li><a href="teklif.html">Hizmetler</a></li>
           <li><a href="team.html">Ekibimiz</a></li>
           <li><a href="#">İletişim</a></li>
+          <li style="display: flex; align-items: center; margin-left: 20px">
+            <button
+              id="theme-toggle"
+              style="
+                background: var(--turkuaz);
+                color: white;
+                border: none;
+                padding: 8px 15px;
+                border-radius: 20px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 13px;
+                transition: 0.3s;
+              "
+            >
+              🌙 Modu Değiştir
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
 
-    <section class="team-section" style="padding-top: 120px; padding-bottom: 50px;">
+    <section
+      class="team-section"
+      style="padding-top: 120px; padding-bottom: 50px"
+    >
       <div class="container">
         <h2 class="section-title">Yaratıcı Ekibimiz</h2>
-        <p style="text-align: center; margin-bottom: 40px; color: #2c3e50; font-weight: 500;">Fikirleri ilmeğe, ilmekleri çizgiye dönüştüren ekip.</p>
+        <p
+          style="
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-weight: 500;
+          "
+        >
+          Fikirleri ilmeğe, ilmekleri çizgiye dönüştüren ekip.
+        </p>
 
         <div class="services-grid">
-          
           <div class="service-card team-card">
             <div class="profile-img-box">
               <img src="profil.jpeg" alt="Esna Erem" />
             </div>
             <h3>Esna Erem</h3>
             <span class="role">Lead Developer</span>
-            <p class="bio">HTML5, CSS3 ve JavaScript mimarisinden sorumlu teknik lider. Proje kod yapısını ve performansını yönetiyor.</p>
+            <p class="bio">
+              HTML5, CSS3 ve JavaScript mimarisinden sorumlu teknik lider. Proje
+              kod yapısını ve performansını yönetiyor.
+            </p>
             <div class="certification-badge" onclick="openModal()">
-              <img src="sertifika.png" alt="Q-Line Sertifikası" style="width: 100%; border-radius: 5px;" />
-              <p style="font-size: 0.7rem; color: var(--turkuaz); margin-top: 5px; font-weight: bold;">📜 Sertifikayı Görüntüle</p>
+              <img
+                src="sertifika.png"
+                alt="Q-Line Sertifikası"
+                style="width: 100%; border-radius: 5px"
+              />
+              <p
+                style="
+                  font-size: 0.7rem;
+                  color: var(--turkuaz);
+                  margin-top: 5px;
+                  font-weight: bold;
+                "
+              >
+                📜 Sertifikayı Görüntüle
+              </p>
             </div>
-            <div class="social-links" style="margin-top:10px;">
+            <div class="social-links" style="margin-top: 10px">
               <a href="#">🔗 LinkedIn</a>
             </div>
           </div>
 
           <div class="service-card team-card">
-            <div class="profile-img-box" style="background: #f39c12; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px;">
+            <div
+              class="profile-img-box"
+              style="
+                background: #f39c12;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 40px;
+              "
+            >
               <span>🎨</span>
             </div>
             <h3>Kreatif Direktör</h3>
             <span class="role">Art & Design Lead</span>
-            <p class="bio">Markanın görsel kimliğini ve sanatsal dilini oluşturuyor. Tasarımların estetik standartlarından sorumlu zihin.</p>
+            <p class="bio">
+              Markanın görsel kimliğini ve sanatsal dilini oluşturuyor.
+              Tasarımların estetik standartlarından sorumlu zihin.
+            </p>
             <div class="social-links">
               <a href="#">🎨 Portfolio</a>
             </div>
           </div>
 
           <div class="service-card team-card">
-            <div class="profile-img-box" style="background: #2ecc71; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px;">
+            <div
+              class="profile-img-box"
+              style="
+                background: #2ecc71;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 40px;
+              "
+            >
               <span>📊</span>
             </div>
             <h3>Proje Yöneticisi</h3>
             <span class="role">Operations Manager</span>
-            <p class="bio">Sprint süreçlerini ve zaman yönetimini koordine ediyor. Ekip içi iletişimi yöneten stratejist.</p>
+            <p class="bio">
+              Sprint süreçlerini ve zaman yönetimini koordine ediyor. Ekip içi
+              iletişimi yöneten stratejist.
+            </p>
             <div class="social-links">
               <a href="#">💼 Contact</a>
             </div>
           </div>
 
           <div class="service-card team-card">
-            <div class="profile-img-box" style="background: #9b59b6; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px;">
+            <div
+              class="profile-img-box"
+              style="
+                background: #9b59b6;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 40px;
+              "
+            >
               <span>📱</span>
             </div>
             <h3>UI/UX Tasarımcı</h3>
             <span class="role">User Experience</span>
-            <p class="bio">Kullanıcı dostu arayüzler tasarlıyor ve sitenin dijital deneyimini optimize eden mimar.</p>
+            <p class="bio">
+              Kullanıcı dostu arayüzler tasarlıyor ve sitenin dijital deneyimini
+              optimize eden mimar.
+            </p>
             <div class="social-links">
               <a href="#">🖥️ Behance</a>
             </div>
           </div>
-
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
-          <a href="index.html" class="btn-cta" style="display: inline-block; text-decoration: none; padding: 15px 40px;">
+        <div style="text-align: center; margin-top: 50px">
+          <a
+            href="index.html"
+            class="btn-cta"
+            style="
+              display: inline-block;
+              text-decoration: none;
+              padding: 15px 40px;
+            "
+          >
             🏠 Anasayfaya Geri Dön
           </a>
         </div>
@@ -166,7 +263,14 @@
       <img class="modal-content" src="sertifika.png" alt="Sertifika" />
     </div>
 
-    <footer style="margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.9); text-align: center;">
+    <footer
+      style="
+        margin-top: 50px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.9);
+        text-align: center;
+      "
+    >
       <p>© 2026 İlmek & İz | Tüm Hakları Saklıdır.</p>
     </footer>
 
@@ -177,6 +281,40 @@
       if (hamburger) {
         hamburger.addEventListener("click", () => {
           navLinks.classList.toggle("active");
+        });
+      }
+      // --- BÖLÜM 2: TASK 5.2 - KARANLIK MOD & KALICI HAFIZA ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // 1. Sayfa açıldığında tarayıcı hafızasına (LocalStorage) bak
+    const currentTheme = localStorage.getItem('theme');
+
+    // 2. Eğer kullanıcı daha önce 'dark' seçmişse, siteyi karanlık aç
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (themeToggle) themeToggle.innerHTML = "☀️ Aydınlık Mod";
+    }
+
+    // 3. Mod Değiştirme Butonuna tıklandığında
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            // Sınıfı ekle/çıkar (Toggle)
+            body.classList.toggle('dark-mode');
+            
+            let theme = 'light';
+            
+            // Görsel metni ve kaydedilecek veriyi güncelle
+            if (body.classList.contains('dark-mode')) {
+                theme = 'dark';
+                themeToggle.innerHTML = "☀️ Aydınlık Mod";
+            } else {
+                theme = 'light';
+                themeToggle.innerHTML = "🌙 Modu Değiştir";
+            }
+            
+            // 4. Seçimi kalıcı hafızaya kaydet (Task 5.2 zorunlu şartı)
+            localStorage.setItem('theme', theme);
         });
       }
 

@@ -206,6 +206,43 @@
             <a href="index.html">← Ana Sayfaya Dön</a>
         </div>
     </div>
+    <script>
+        // --- BÖLÜM 2: TASK 5.2 - KARANLIK MOD & KALICI HAFIZA ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // 1. Sayfa açıldığında tarayıcı hafızasına (LocalStorage) bak
+    const currentTheme = localStorage.getItem('theme');
+
+    // 2. Eğer kullanıcı daha önce 'dark' seçmişse, siteyi karanlık aç
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (themeToggle) themeToggle.innerHTML = "☀️ Aydınlık Mod";
+    }
+
+    // 3. Mod Değiştirme Butonuna tıklandığında
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            // Sınıfı ekle/çıkar (Toggle)
+            body.classList.toggle('dark-mode');
+            
+            let theme = 'light';
+            
+            // Görsel metni ve kaydedilecek veriyi güncelle
+            if (body.classList.contains('dark-mode')) {
+                theme = 'dark';
+                themeToggle.innerHTML = "☀️ Aydınlık Mod";
+            } else {
+                theme = 'light';
+                themeToggle.innerHTML = "🌙 Modu Değiştir";
+            }
+            
+            // 4. Seçimi kalıcı hafızaya kaydet (Task 5.2 zorunlu şartı)
+            localStorage.setItem('theme', theme);
+        });
+    }
+</script>
+    
     <footer style="margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.9); text-align: center;">
     <p>© 2026 İlmek & İz | Tüm Hakları Saklıdır.</p>
 </footer>
